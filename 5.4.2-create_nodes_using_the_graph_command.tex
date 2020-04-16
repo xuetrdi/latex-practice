@@ -12,36 +12,55 @@
   skip loop/.style = {to path={-- ++(0,#1) -| (\tikztotarget)}},
   hv path/.style = {to path={-| (\tikztotarget)}},
   vh path/.style = {to path={|- (\tikztotarget)}},
-  node distance=5mm,
-  text height=1.5ex,text depth=.25ex,
-  terminal/.style={rounded rectangle,minimum size=6mm,very thick,draw=black!50,top color=white,bottom color=black!20,font=\ttfamily},
-  nonterminal/.style={rectangle,minimum size=6mm,very thick,draw=red!50!black!50,top color=white,bottom color=red!50!black!20,font=\itshape}]
+  terminal/.style={
+    rounded rectangle,
+    minimum size=6mm,
+    very thick,
+    draw=black!50,
+    top color=white,
+    bottom color=black!20,
+    font=\ttfamily,
+    text height=1.5ex,
+    text depth=.25ex},
+  nonterminal/.style={
+    rectangle,
+    minimum size=6mm,
+    very thick,
+    draw=red!50!black!50,
+    top color=white,
+    bottom color=red!50!black!20,
+    font=\itshape,
+    text height=1.5ex,
+    text depth=.25ex},
+  shape=coordinate]
 
-  \graph[grow right sep, branch down=7mm] {
-    /                    [coordinate]  ->
-    unsigned integer     [nonterminal] ->
-    p1                   [coordinate]  ->
+  \graph[grow right sep, branch down=7mm, simple] {
+    /                                  ->
+    unsigned integer     [nonterminal] --
+    p1                                 ->
     "."                  [terminal]    --
-    p2                   [coordinate]  ->
+    p2                                 ->
     digit                [terminal]    --
-    p3                   [coordinate]  --
-    p4                   [coordinate]  --
-    p5                   [coordinate]  ->
+    p3                                 --
+    p4                                 --
+    p5                                 ->
     E                    [terminal]    --
-    q1                   [coordinate]  -> [vh path]
+    q1                                 -> [vh path]
     { [nodes={yshift=7mm}]
       "+"                [terminal],
-      "q2/"              [coordinate],
+      "q2"                        ,
       "-"                [terminal]
     }                                  -> [hv path]
-    q3                   [coordinate]  --
+    q3                                 --
     /unsigned integer    [nonterminal] --
-    p6                   [coordinate]  ->
-    /                    [coordinate];
+    p6                                 ->
+    /;
 
    p1 ->[skip loop=5mm]   p4;
    p3 ->[skip loop=-5mm]  p2;
    p5 ->[skip loop=-11mm] p6;
+
+   q1 -- q2 -- q3;
   };
 \end{tikzpicture}
 \end{document}
