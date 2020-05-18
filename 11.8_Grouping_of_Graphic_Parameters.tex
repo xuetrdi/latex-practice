@@ -1,0 +1,23 @@
+\documentclass{beamer}
+\usepackage{tikz}
+
+\title{}
+\date{\today}
+\author{JinPeng.D}
+
+\begin{document}
+\begin{frame}
+  \begin{tikzpicture}
+    \begin{scope}[color=red]
+      \draw (0mm,10mm) -- (10mm,10mm);
+      \draw (0mm,8mm) -- (10mm,8mm);
+      \draw (0mm,6mm) -- (10mm,6mm);
+    \end{scope}
+    \begin{scope}[color=green]
+      \draw (0mm,4mm) -- (10mm,4mm);
+      \draw (0mm,2mm) -- (10mm,2mm);
+      \draw[color=blue] (0mm,0mm) -- (10mm,0mm);
+    \end{scope}
+  \end{tikzpicture}
+\end{frame}
+\end{document}
