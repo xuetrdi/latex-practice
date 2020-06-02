@@ -1,0 +1,27 @@
+\documentclass{beamer}
+\usepackage{tikz}
+
+\title{}
+\date{\today}
+\author{JinPeng.D}
+
+\begin{document}
+\begin{frame}
+  \begin{tikzpicture}
+    \draw[help lines] (0,0) grid (3,2);
+    \draw (canvas cs:x=0cm,y=2mm)
+       -- (canvas polar cs:radius=2cm,angle=30);
+  \end{tikzpicture}
+  \begin{tikzpicture}
+    \draw[help lines] (0,0) grid (3,2);
+    \draw (0cm,2mm) -- (30:2cm);
+  \end{tikzpicture}
+  \begin{tikzpicture}
+    \draw[help lines] (0,0) grid (3,2);
+    \draw      (0,0) -- (1,1);
+    \draw[red] (0,0) -- ([xshift=3pt] 1,1);
+    \draw      (1,0) -- +(30:2cm);
+    \draw[red] (1,0) -- +([shift=(135:5pt)] 30:2cm);
+  \end{tikzpicture}
+\end{frame}
+\end{document}
