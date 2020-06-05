@@ -1,0 +1,25 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+
+\title{}
+\date{\today}
+\author{JinPeng.D}
+
+\begin{document}
+\begin{frame}
+  \begin{tikzpicture}
+    \node (shape) at (0,2) [draw] {|class Shape|};
+    \node (rect) at (-2,0) [draw] {|class Rectangle|};
+    \node (circle) at (2,0) [draw] {|class Circle|};
+    \node (ellipse) at (6,0) [draw] {|class Ellipse|};
+
+    \draw (node cs:name=circle,anchor=north) |- (0,1);
+    \draw (node cs:name=ellipse,anchor=north) |- (0,1);
+    \draw [arrows= -{Triangle[open,angle=60:3mm]}]
+     (node cs:name=rect,anchor=north) |- (0,1) -| (node cs:name=shape,anchor=south);
+
+  \end{tikzpicture}
+\end{frame}
+\end{document}
