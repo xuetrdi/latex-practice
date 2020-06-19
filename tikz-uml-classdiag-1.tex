@@ -1,0 +1,32 @@
+\documentclass{beamer}
+\usepackage{tikz-uml}
+
+\title{}
+\date{\today}
+\author{JinPeng.D}
+
+\begin{document}
+\begin{frame}
+  \begin{center}
+  \begin{tikzpicture}[scale=0.5]
+    \umlclass[x=0,y=0,type=interface]{AppCache} {}{
+      + put(Object: key, Object: value) : void \\
+      + get(Object: key): Object \\
+      + delete(Object key): void
+    }
+    \umlclass[x=12,y=0,type=interface]{SystemCache}{}{
+      + reBuild(Config: conf)
+    }
+    \umlclass[x=6,y=-8]{Cache} {}{
+      + put(Object: key, Object: value) : void \\
+      + get(Object: key): Object \\
+      + delete(Object key): void \\
+      + reBuild(Config: conf)
+    }
+
+    \umlimpl[geometry=|-|]{Cache}{AppCache}
+    \umlimpl[geometry=|-|]{Cache}{SystemCache}
+  \end{tikzpicture}
+\end{center}
+\end{frame}
+\end{document}
